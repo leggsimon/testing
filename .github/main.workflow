@@ -11,6 +11,6 @@ action "Filters for GitHub Actions" {
 action "docker://node:10" {
   uses = "docker://node:10"
   needs = ["Filters for GitHub Actions"]
-  args = "-e 'process.exit(require(process.env.GITHUB_EVENT_PATH).pull_request.merged ? 0 : 1)'"
+  args = "-e 'process.exit(require(process.env.GITHUB_EVENT_PATH).pull_request.merged?0:1)'"
   runs = "node"
 }
